@@ -7,6 +7,37 @@ Prototype project that incorporates the layers suggested by the Clean Architectu
 * Adapter: Implements the adapter interfaces defined in the domain layer (business). These implementations are the ones that contain the technical logic to, for example, make the connection with the different data repositories required by the application, with the different third-party application services, with the event bus or others of the same type. For this, this layer requires the definition made in the business layer.
 * Application: Exposes the services of the business logic through various endpoints required by the front end to carry out the business process. Likewise, it is in charge of instantiating what is defined in the adapter and domain layers, since the microservice starts from this layer.
 
+## Assumptions or improvements
+
+```
+Improvements
+```
+
+* Implement circuit breaker pattern in API clients like JudicialRecordClient, LeadsClient,
+  NationalRegistryClient and VerifyScoreClient.
+
+
+* Implement the integration with kafka to raise an event when the evaluation of leads completes successfully,
+  to continue processing in another microservice now as a prospects.
+
+
+* Secure the API with JWT authorization
+
+
+* Implement Redis for consumption data that doesn't change frequently, for example when get data from Lead from database.
+
+
+* Document the API using Swagger 2
+
+
+* Complement checkstyle with findbugs
+
+```
+Assumptions
+```
+
+* Some Unit test empty for demos API
+
 ## Starting
 
 Follow the instructions below to start the development of this project.
@@ -56,28 +87,3 @@ LeadRestControllerIT.java
 
 ### Data for IT locate in:
 MockServer.java
-
-## Assumptions or improvements
-
-```
-Improvements
-```
-
-* Implement circuit breaker pattern in API clients like JudicialRecordClient, LeadsClient, 
-NationalRegistryClient and VerifyScoreClient.
-
-
-* Implement the integration with kafka to raise an event when the evaluation of leads completes successfully,
-to continue processing in another microservice now as a lead.
-
-
-* Document the API using Swagger 2
-
-
-* Complement checkstyle with findbugs
-
-```
-Assumptions
-```
-
-* Some Unit test empty for demos API
