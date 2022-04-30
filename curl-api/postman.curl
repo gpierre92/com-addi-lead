@@ -1,0 +1,5 @@
+curl --location --request POST 'http://localhost:9091/api/v1/evaluate' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"identityNumber": "12345678"
+}'

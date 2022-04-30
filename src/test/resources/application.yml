@@ -1,0 +1,31 @@
+server:
+  port: 9091
+
+feign:
+  client:
+    config:
+      leadsConfig:
+        base-url: http://localhost:8080/api/v1/lead
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
+      judicialRecordConfig:
+        base-url: http://localhost:8080/api/v1/judicial
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
+      nationalRegistryConfig:
+        base-url: http://localhost:8080/api/v1/national
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
+      verifyScoreConfig:
+        base-url: http://localhost:8080/api/v1/score
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
+
+logging.level:
+  root: WARN
+  org.springframework: INFO
+  com.addi.lead: TRACE
